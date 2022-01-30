@@ -4,9 +4,9 @@ A API server by Express.js. Please use Postman to test API.
 
 # database
 
-username:root
+username:**you can change in /db/index.js**
 
-password:kenlig
+password:**you can change in /db/index.js**
 
 # how to test this project
 use `npm i` to install package
