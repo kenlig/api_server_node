@@ -17,12 +17,15 @@ app.use(function (req, res, next) {
     next();
 })
 app.use(expressJWT({ secret: config.jwtSecretKey }).unless({ path: [/^\/api\//] }));
+app.use('/uploads', express.static('./uploads'));
 const userRouter = require('./router/user');
 const userinfoRouter = require('./router/userinfo');
 const artCateRouter=require('./router/artcate');
+const articleRouter=require('./router/article');
 app.use('/api', userRouter);
 app.use('/my', userinfoRouter);
 app.use('/my/article',artCateRouter);
+app.use('/my/article',articleRouter);
 
 app.use((err, req, res, next) => {
     if (err instanceof joi.ValidationError) res.cc(err);
